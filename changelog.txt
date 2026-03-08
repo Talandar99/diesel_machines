@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+Date: 2026-03-08
+  Changes:
+    - Offshore pump require power compatibility: with both mods installed, 
+      you unlock a diesel offshore pump with diesel automation.
+    - Lignumis compatibility: fast diesel inserters and long handed diesel inserters are added as the 
+      "next upgrade" for steam inserters, making it easier to switch from steam to diesel.
+    - Added diesel trains as optional compatibility to suggest that both mods work well together.
+---------------------------------------------------------------------------------------------------
 Version: 0.1.2
 Date: 2026-02-15
   Changes:
