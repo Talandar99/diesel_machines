@@ -15,3 +15,6 @@ end
 if mods["offshore_pump_require_power"] then
 	require("prototypes.diesel-offshore-pump")
 end
+if mods["pelagos"] then
+	data.raw["item"]["portable-diesel-generator"].default_import_location = "pelagos"
+end

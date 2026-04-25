@@ -28,4 +28,29 @@ data:extend({
 			time = 30,
 		},
 	},
+	{
+		type = "technology",
+		name = "portable-diesel-generator",
+		icons = util.technology_icon_constant_equipment("__diesel_machines__/graphics/portable-diesel-generator.png"),
+		icon_size = 256,
+		effects = {
+			{ type = "unlock-recipe", recipe = "portable-diesel-generator" },
+		},
+		prerequisites = {
+			"diesel-automation",
+			--	"automation-2", -- important for any planet start
+			"power-armor",
+			"utility-science-pack",
+		},
+		unit = {
+			count_formula = "500",
+			ingredients = {
+				{ "automation-science-pack", 1 },
+				{ "logistic-science-pack", 1 },
+				{ "chemical-science-pack", 1 },
+				{ "utility-science-pack", 1 },
+			},
+			time = 60,
+		},
+	},
 })
