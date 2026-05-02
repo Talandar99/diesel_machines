@@ -4,8 +4,8 @@ data.extend({
 		name = "diesel-mining-drill",
 		energy_required = 2,
 		ingredients = {
-			{ type = "item", name = "iron-plate", amount = 10 },
-			{ type = "item", name = "iron-gear-wheel", amount = 5 },
+			{ type = "item", name = "pipe", amount = 4 },
+			{ type = "item", name = "burner-mining-drill", amount = 1 },
 			{ type = "item", name = "engine-unit", amount = 2 },
 		},
 		results = { { type = "item", name = "diesel-mining-drill", amount = 1 } },

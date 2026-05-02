@@ -54,3 +54,6 @@ data:extend({
 		},
 	},
 })
+if mods["calciner"] then
+	table.insert(data.raw["technology"]["calciner"].prerequisites, "diesel-automation")
+end

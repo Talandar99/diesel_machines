@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.4.0
+Date: 2026-05-02
+  Changes:
+    - added compatibility with calciner, with it installed you now need to
+      research diesel automation first
+    - default diesel mining drill recipe changed. It now require: burner mining drill +
+      4 pipes + 2 engine units 
+---------------------------------------------------------------------------------------------------
 Version: 0.3.0
 Date: 2026-04-25
   Changes:

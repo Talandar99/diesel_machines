@@ -1,12 +1,13 @@
 {
     "name": "diesel_machines",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "title": "Diesel Machines",
     "author": "Talandar",
     "dependencies": [
         "diesel_engine",
         "? diesel_trains",
-        "? offshore_pump_require_power"
+        "? offshore_pump_require_power",
+        "? calciner"
     ],
     "description": "Set of powerful liquid fuel powered machines for basic tasks",
     "factorio_version": "2.0"
