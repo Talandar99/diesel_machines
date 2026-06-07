@@ -59,6 +59,7 @@ data:extend({
 				{ direction = defines.direction.south, position = { 0, 0.5 }, flow_direction = "input" },
 			},
 		},
+		make_space_diesel_variant = true,
 		energy_source = {
 
 			type = "fluid",

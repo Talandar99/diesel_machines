@@ -57,6 +57,7 @@ data:extend({
 		--	drain = "0.4kW",
 		--},
 		--
+		make_space_diesel_variant = true,
 		energy_source = {
 
 			type = "fluid",

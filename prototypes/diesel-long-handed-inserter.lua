@@ -43,6 +43,7 @@ data:extend({
 		hand_size = 1.5,
 		energy_per_movement = "7kJ",
 		energy_per_rotation = "7kJ",
+		make_space_diesel_variant = true,
 		energy_source = {
 			type = "fluid",
 			burns_fluid = true, -- fluid used as power

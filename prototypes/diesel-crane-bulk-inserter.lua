@@ -86,6 +86,7 @@ data:extend({
 		--	usage_priority = "secondary-input",
 		--	drain = "1kW",
 		--},
+		make_space_diesel_variant = true,
 		energy_source = {
 
 			type = "fluid",

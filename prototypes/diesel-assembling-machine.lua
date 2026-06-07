@@ -162,6 +162,7 @@ data:extend({
 		},
 
 		crafting_speed = 1.25,
+		make_space_diesel_variant = true,
 		energy_source = {
 			type = "fluid",
 			burns_fluid = true, -- fluid used as power
