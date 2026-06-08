@@ -1,6 +1,7 @@
 local item_sounds = require("__base__.prototypes.item_sounds")
 local item_tints = require("__base__.prototypes.item-tints")
 local sounds = require("__base__.prototypes.entity.sounds")
+local hit_effects = require("__base__.prototypes.entity.hit-effects")
 
 function cutpipecover()
 	return {
@@ -42,7 +43,7 @@ data:extend({
 	{
 		type = "item",
 		name = "diesel-asteroid-collector",
-		icon = "__pelagos__/graphics/diesel-asteroid-collector/asteroid-collector.png",
+		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector.png",
 		subgroup = "space-platform",
 		order = "d[asteroid-collector]",
 		inventory_move_sound = item_sounds.mechanical_inventory_move,
@@ -58,7 +59,7 @@ data:extend({
 		name = "diesel-asteroid-collector",
 		enabled = false,
 		ingredients = {
-			{ type = "item", name = "titanium-plate", amount = 20 },
+			{ type = "item", name = "low-density-structure", amount = 20 },
 			{ type = "item", name = "electric-engine-unit", amount = 8 },
 			{ type = "item", name = "processing-unit", amount = 5 },
 		},
@@ -69,7 +70,7 @@ data:extend({
 		type = "asteroid-collector",
 		name = "diesel-asteroid-collector",
 		flags = { "placeable-neutral", "placeable-player", "player-creation" },
-		icon = "__pelagos__/graphics/diesel-asteroid-collector/asteroid-collector.png",
+		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector.png",
 		--factoriopedia_simulation = simulations.factoriopedia_asteroid_collector,
 		collision_box = { { -1.2, -1.2 }, { 1.2, 1.2 } },
 		collision_mask = { layers = { is_object = true, is_lower_object = true, transport_belt = true } },
@@ -124,9 +125,9 @@ data:extend({
 		corpse = "asteroid-collector-remnants",
 		dying_explosion = "asteroid-collector-explosion",
 		--collection_radius = 7.5,
-		collection_radius = 15,
+		collection_radius = 20,
 		--collection_box_offset = 5.0,
-		collection_box_offset = 13.5,
+		collection_box_offset = 22.5,
 		deposit_radius = 1.5,
 		minimal_arm_swing_segment_retraction = 6,
 		impact_category = "metal",
@@ -193,9 +194,9 @@ data:extend({
 		arm_count_base = 1,
 		arm_count_quality_scaling = 0,
 		--arm_speed_base = 0.2,
-		arm_speed_base = 0.1,
-		arm_speed_quality_scaling = 0.05,
-		arm_angular_speed_cap_base = 0.2,
+		arm_speed_base = 0.3,
+		arm_speed_quality_scaling = 0.01,
+		arm_angular_speed_cap_base = 0.3,
 		arm_angular_speed_cap_quality_scaling = 0.05,
 		tether_size = 0.35,
 		unpowered_arm_speed_scale = 0.3,
@@ -208,7 +209,7 @@ data:extend({
 		inventory_size = 39,
 		inventory_size_quality_increase = 5,
 		arm_inventory_size = 6,
-		arm_inventory_size_quality_increase = 1,
+		arm_inventory_size_quality_increase = 2,
 		max_health = 300,
 		minable = { mining_time = 0.2, result = "diesel-asteroid-collector" },
 		resistances = {
@@ -219,7 +220,7 @@ data:extend({
 		},
 		circuit_connector = circuit_connector_definitions["asteroid-collector"],
 		circuit_wire_max_distance = default_circuit_wire_max_distance,
-		graphics_set = require("__pelagos__.prototypes.liquid-fuel.diesel-asteroid-collector-pictures"),
+		graphics_set = require("__diesel_machines__.prototypes.diesel-asteroid-collector-pictures"),
 		radius_visualisation_picture = {
 			filename = "__space-age__/graphics/entity/asteroid-collector/asteroid-collector-radius-visualization.png",
 			size = 10,
@@ -240,7 +241,7 @@ data:extend({
 		type = "recipe",
 		name = "diesel-asteroid-collector-working",
 		category = "diesel-asteroid-collector-working",
-		icon = "__pelagos__/graphics/diesel-asteroid-collector/asteroid-collector.png",
+		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector.png",
 		energy_required = 1,
 		enabled = true,
 		ingredients = {},
@@ -258,7 +259,7 @@ data:extend({
 	{
 		type = "assembling-machine",
 		name = "diesel-asteroid-collector-engine",
-		icon = "__pelagos__/graphics/diesel-asteroid-collector/asteroid-collector.png",
+		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector.png",
 		flags = {
 			"placeable-neutral",
 			"placeable-player",
@@ -312,6 +313,7 @@ data:extend({
 			burns_fluid = true, -- fluid used as power
 			scale_fluid_usage = true,
 			fluid_box = {
+				filter = "space-diesel-fuel",
 				--pipe_covers = pipecoverspictures(),
 				--pipe_picture = assembler2pipepictures(),
 				--pipe_picture = dieseldrillpipepictures(),
