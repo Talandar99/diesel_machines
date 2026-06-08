@@ -6,6 +6,7 @@ Date: 2026-06-07
     - if cargo crates are installed with diesel machines, diesel assembling
       machine is only machine capable of packing and unpacking crates (this was
       previously present in pelagos, it's moved to this mod)
+    - added diesel asteroid collector (previously present in pelagos)
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.0
 Date: 2026-05-02
