@@ -54,28 +54,30 @@ data:extend({
 		},
 	},
 })
-data:extend({
-	{
-		type = "technology",
-		name = "diesel-asteroid-collector",
-		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector.png",
-		icon_size = 64,
-		effects = {
-			{ type = "unlock-recipe", recipe = "diesel-asteroid-collector" },
-		},
-		prerequisites = { "diesel-automation", "space-platform", "space-diesel" },
-		unit = {
-			count_formula = "1000",
-			ingredients = {
-				{ "automation-science-pack", 1 },
-				{ "logistic-science-pack", 1 },
-				{ "chemical-science-pack", 1 },
-				{ "space-science-pack", 1 },
+if mods["space-age"] then
+	data:extend({
+		{
+			type = "technology",
+			name = "diesel-asteroid-collector",
+			icon = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector.png",
+			icon_size = 64,
+			effects = {
+				{ type = "unlock-recipe", recipe = "diesel-asteroid-collector" },
 			},
-			time = 60,
+			prerequisites = { "diesel-automation", "space-platform", "space-diesel" },
+			unit = {
+				count_formula = "1000",
+				ingredients = {
+					{ "automation-science-pack", 1 },
+					{ "logistic-science-pack", 1 },
+					{ "chemical-science-pack", 1 },
+					{ "space-science-pack", 1 },
+				},
+				time = 60,
+			},
 		},
-	},
-})
+	})
+end
 if mods["calciner"] then
 	table.insert(data.raw["technology"]["calciner"].prerequisites, "diesel-automation")
 end
