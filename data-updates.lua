@@ -15,15 +15,15 @@ if mods["pelagos"] then
 end
 
 -- diesel assembling-machine recipes
-local base_categories = data.raw["assembling-machine"]["assembling-machine-3"].crafting_categories
-local diesel_categories = table.deepcopy(base_categories)
-if mods["barreling_machines"] then
-	table.insert(diesel_categories, "barreling")
-end
-if mods["cargo_crates"] then
-	table.insert(diesel_categories, "cargo-crates")
-end
-if mods["pelagos"] then
-	table.insert(diesel_categories, "diesel-rocket-parts")
-end
-data.raw["assembling-machine"]["diesel-assembling-machine"].crafting_categories = diesel_categories
+--local base_categories = data.raw["assembling-machine"]["assembling-machine-3"].crafting_categories
+--local diesel_categories = table.deepcopy(base_categories)
+--if mods["barreling_machines"] then
+--	table.insert(diesel_categories, "barreling")
+--end
+--if mods["cargo_crates"] then
+--	table.insert(diesel_categories, "cargo-crates")
+--end
+--if mods["pelagos"] then
+--	table.insert(diesel_categories, "diesel-rocket-parts")
+--end
+--data.raw["assembling-machine"]["diesel-assembling-machine"].crafting_categories = diesel_categories

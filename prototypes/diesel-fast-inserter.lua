@@ -3,11 +3,28 @@ local item_sounds = require("__base__.prototypes.item_sounds")
 
 local hit_effects = require("__base__.prototypes.entity.hit-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
+
+function fast_inserter_pipe_base()
+	return {
+		north = {
+			filename = "__diesel_machines__/graphics/inserters/diesel_fast_inserter_base.png",
+			priority = "extra-high",
+			width = 192,
+			height = 192,
+			shift = util.by_pixel(0, 32),
+			scale = 0.5,
+		},
+
+		east = util.empty_sprite(),
+		south = util.empty_sprite(),
+		west = util.empty_sprite(),
+	}
+end
 data:extend({
 	{
 		type = "item",
 		name = "fast-diesel-inserter",
-		icon = "__diesel_machines__/graphics/diesel-fast-inserter/diesel-fast-inserter-engine.png",
+		icon = "__diesel_machines__/graphics/inserters/diesel_fast_inserter_icon.png",
 		subgroup = "inserter",
 		color_hint = { text = "L" },
 		order = "gd[diesel-inserter-a]",
@@ -22,7 +39,7 @@ data:extend({
 	{
 		type = "inserter",
 		name = "fast-diesel-inserter",
-		icon = "__diesel_machines__/graphics/diesel-fast-inserter/diesel-fast-inserter-engine.png",
+		icon = "__diesel_machines__/graphics/inserters/diesel_fast_inserter_icon.png",
 		flags = { "placeable-neutral", "placeable-player", "player-creation" },
 		minable = { mining_time = 0.1, result = "fast-diesel-inserter" },
 		max_health = 150,
@@ -48,8 +65,8 @@ data:extend({
 			scale_fluid_usage = true,
 			fluid_box = {
 				--pipe_covers = pipecoverspictures(),
-				pipe_picture = dieselassemblingmachinepipes(),
-				pipe_covers = pipecoverspictures(),
+				pipe_picture = fast_inserter_pipe_base(),
+				pipe_covers = diesel_inserter_pipecoverspictures(),
 				always_draw_covers = false,
 				volume = 100,
 				pipe_connections = {
@@ -88,25 +105,25 @@ data:extend({
 		close_sound = sounds.inserter_close,
 		working_sound = sounds.inserter_fast,
 		hand_base_picture = {
-			filename = "__diesel_machines__/graphics/diesel-fast-inserter/diesel-fast-inserter-hand-base.png",
+			filename = "__diesel_machines__/graphics/inserters/diesel_fast_inserter_hand_base.png",
 			priority = "extra-high",
-			width = 32,
-			height = 136,
-			scale = 0.25,
+			width = 64,
+			height = 128,
+			scale = 0.4,
 		},
 		hand_closed_picture = {
-			filename = "__diesel_machines__/graphics/diesel-fast-inserter/diesel-fast-inserter-hand-closed.png",
+			filename = "__diesel_machines__/graphics/inserters/diesel_fast_inserter_hand_closed.png",
 			priority = "extra-high",
-			width = 72,
-			height = 164,
-			scale = 0.25,
+			width = 64,
+			height = 128,
+			scale = 0.4,
 		},
 		hand_open_picture = {
-			filename = "__diesel_machines__/graphics/diesel-fast-inserter/diesel-fast-inserter-hand-open.png",
+			filename = "__diesel_machines__/graphics/inserters/diesel_fast_inserter_hand_open.png",
 			priority = "extra-high",
-			width = 72,
-			height = 164,
-			scale = 0.25,
+			width = 64,
+			height = 128,
+			scale = 0.4,
 		},
 		hand_base_shadow = {
 			filename = "__base__/graphics/entity/burner-inserter/burner-inserter-hand-base-shadow.png",

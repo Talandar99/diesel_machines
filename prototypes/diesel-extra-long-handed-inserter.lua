@@ -3,11 +3,28 @@ local item_sounds = require("__base__.prototypes.item_sounds")
 
 local hit_effects = require("__base__.prototypes.entity.hit-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
+
+function extra_long_inserter_pipe_base()
+	return {
+		north = {
+			filename = "__diesel_machines__/graphics/inserters/diesel_extra_long_handed_inserter_base.png",
+			priority = "extra-high",
+			width = 192,
+			height = 192,
+			shift = util.by_pixel(0, 32),
+			scale = 0.5,
+		},
+
+		east = util.empty_sprite(),
+		south = util.empty_sprite(),
+		west = util.empty_sprite(),
+	}
+end
 data:extend({
 	{
 		type = "item",
 		name = "diesel-inserter",
-		icon = "__diesel_machines__/graphics/diesel-extra-long-handed-inserter/diesel-extra-long-handed-inserter-engine.png",
+		icon = "__diesel_machines__/graphics/inserters/diesel_extra_long_handed_inserter_icon.png",
 		subgroup = "inserter",
 		color_hint = { text = "L" },
 		order = "gd[diesel-inserter-c]",
@@ -22,7 +39,7 @@ data:extend({
 	{
 		type = "inserter",
 		name = "diesel-inserter",
-		icon = "__diesel_machines__/graphics/diesel-extra-long-handed-inserter/diesel-extra-long-handed-inserter-engine.png",
+		icon = "__diesel_machines__/graphics/inserters/diesel_extra_long_handed_inserter_icon.png",
 		flags = { "placeable-neutral", "placeable-player", "player-creation" },
 		minable = { mining_time = 0.1, result = "diesel-inserter" },
 		max_health = 160,
@@ -65,8 +82,8 @@ data:extend({
 			scale_fluid_usage = true,
 			fluid_box = {
 				--pipe_covers = pipecoverspictures(),
-				pipe_picture = dieseldrillpipepictures(),
-				pipe_covers = pipecoverspictures(),
+				pipe_picture = extra_long_inserter_pipe_base(),
+				pipe_covers = diesel_inserter_pipecoverspictures(),
 				always_draw_covers = false,
 				volume = 100,
 				pipe_connections = {
@@ -94,25 +111,25 @@ data:extend({
 		close_sound = sounds.inserter_close,
 		working_sound = sounds.inserter_long_handed,
 		hand_base_picture = {
-			filename = "__diesel_machines__/graphics/diesel-extra-long-handed-inserter/diesel-extra-long-handed-inserter-hand-base.png",
+			filename = "__diesel_machines__/graphics/inserters/diesel_extra_long_handed_inserter_hand_base.png",
 			priority = "extra-high",
-			width = 32,
-			height = 208,
-			scale = 0.25,
+			width = 64,
+			height = 128,
+			scale = 0.4,
 		},
 		hand_closed_picture = {
-			filename = "__diesel_machines__/graphics/diesel-extra-long-handed-inserter/diesel-extra-long-handed-inserter-hand-closed.png",
+			filename = "__diesel_machines__/graphics/inserters/diesel_extra_long_handed_inserter_hand_closed.png",
 			priority = "extra-high",
-			width = 72,
-			height = 232,
-			scale = 0.25,
+			width = 64,
+			height = 128,
+			scale = 0.4,
 		},
 		hand_open_picture = {
-			filename = "__diesel_machines__/graphics/diesel-extra-long-handed-inserter/diesel-extra-long-handed-inserter-hand-open.png",
+			filename = "__diesel_machines__/graphics/inserters/diesel_extra_long_handed_inserter_hand_open.png",
 			priority = "extra-high",
-			width = 72,
-			height = 232,
-			scale = 0.25,
+			width = 64,
+			height = 128,
+			scale = 0.4,
 		},
 		hand_base_shadow = {
 			filename = "__base__/graphics/entity/burner-inserter/burner-inserter-hand-base-shadow.png",
