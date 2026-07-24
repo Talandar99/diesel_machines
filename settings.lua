@@ -11,3 +11,4 @@ local function force_setting(setting_type, setting_name, value)
 	end
 end
 force_setting("bool", "cargo-crates-can-use-regular-assembling-machines", false)
+force_setting("bool", "enable-diesel-engine-item", true)

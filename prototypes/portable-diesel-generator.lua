@@ -73,7 +73,7 @@ data:extend({
 			type = "electric",
 			usage_priority = "primary-output",
 		},
-		power = "800kW",
+		power = "900kW",
 		categories = { "armor" },
 	},
 })

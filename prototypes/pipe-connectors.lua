@@ -1,35 +1,144 @@
-function dieselassemblingmachinepipes()
+function diesel_asteroid_collector_pipepictures()
 	return {
 		north = {
-			filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel-assembling-machine-pipe-N.png",
+			filename = "__diesel_machines__/graphics/diesel-asteroid-collector/pipe-cover-N.png",
 			priority = "extra-high",
-			width = 71,
-			height = 38,
-			shift = util.by_pixel(2.25, 13.5),
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(0, 32),
 			scale = 0.5,
 		},
 		east = {
-			filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel-assembling-machine-pipe-E.png",
+			filename = "__diesel_machines__/graphics/diesel-asteroid-collector/pipe-cover-E.png",
 			priority = "extra-high",
-			width = 42,
-			height = 76,
-			shift = util.by_pixel(-24.5, 1),
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(-32, 0),
 			scale = 0.5,
 		},
 		south = {
-			filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel-assembling-machine-pipe-S.png",
+			filename = "__diesel_machines__/graphics/diesel-asteroid-collector/pipe-cover-S.png",
 			priority = "extra-high",
-			width = 88,
-			height = 61,
-			shift = util.by_pixel(0, -31.25),
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(0, -32),
 			scale = 0.5,
 		},
 		west = {
-			filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel-assembling-machine-pipe-W.png",
+			filename = "__diesel_machines__/graphics/diesel-asteroid-collector/pipe-cover-W.png",
 			priority = "extra-high",
-			width = 39,
-			height = 73,
-			shift = util.by_pixel(25.75, 1.25),
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(32, 0),
+			scale = 0.5,
+		},
+	}
+end
+function diesel_assembling_machine_pipepictures_blue()
+	return {
+		north = {
+			filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel_assembling_machine_pipe_n_blue.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(0, 16),
+			scale = 0.5,
+		},
+		east = {
+			filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel_assembling_machine_pipe_e_blue.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(-16, 0),
+			scale = 0.5,
+		},
+		south = {
+			filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel_assembling_machine_pipe_s_blue.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(0, -16),
+			scale = 0.5,
+		},
+		west = {
+			filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel_assembling_machine_pipe_w_blue.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(16, 0),
+			scale = 0.5,
+		},
+	}
+end
+function diesel_assembling_machine_pipepictures_yellow()
+	return {
+		north = {
+			filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel_assembling_machine_pipe_n_yellow.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(0, 16),
+			scale = 0.5,
+		},
+		east = {
+			filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel_assembling_machine_pipe_e_yellow.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(-16, 0),
+			scale = 0.5,
+		},
+		south = {
+			filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel_assembling_machine_pipe_s_yellow.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(0, -16),
+			scale = 0.5,
+		},
+		west = {
+			filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel_assembling_machine_pipe_w_yellow.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(16, 0),
+			scale = 0.5,
+		},
+	}
+end
+
+function diesel_miner_pipepictures()
+	return {
+		north = {
+			filename = "__diesel_machines__/graphics/diesel-miner/diesel-miner-pipe-N.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(0, 16),
+			scale = 0.5,
+		},
+		east = {
+			filename = "__diesel_machines__/graphics/diesel-miner/diesel-miner-pipe-E.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(-16, 0),
+			scale = 0.5,
+		},
+		south = {
+			filename = "__diesel_machines__/graphics/diesel-miner/diesel-miner-pipe-S.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(0, -16),
+			scale = 0.5,
+		},
+		west = {
+			filename = "__diesel_machines__/graphics/diesel-miner/diesel-miner-pipe-W.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(16, 0),
 			scale = 0.5,
 		},
 	}

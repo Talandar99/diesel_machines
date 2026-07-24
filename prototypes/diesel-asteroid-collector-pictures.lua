@@ -2,78 +2,94 @@ return {
 	animation = {
 		north = {
 			layers = {
-				util.sprite_load(
-					"__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-top-north",
-					{
-						frame_count = 16,
-						scale = 0.5,
-						animation_speed = 3,
-					}
-				),
-				util.sprite_load("__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-shadow", {
-					draw_as_shadow = true,
-					frame_sequence = { 1, 1, 1, 1 },
-					frame_count = 4,
-					repeat_count = 4,
+				{
+					filename = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-top-N.png",
+					width = 256,
+					height = 256,
+					frame_count = 16,
+					line_length = 4,
 					scale = 0.5,
-				}),
+					animation_speed = 10,
+				},
+				{
+					filename = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-shadow-N.png",
+					width = 256,
+					height = 256,
+					scale = 0.5,
+					frame_count = 1,
+					repeat_count = 16,
+					draw_as_shadow = true,
+					shift = util.by_pixel(15, 0),
+				},
 			},
 		},
 		east = {
 			layers = {
-				util.sprite_load(
-					"__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-top-east",
-					{
-						frame_count = 16,
-						scale = 0.5,
-						animation_speed = 3,
-					}
-				),
-				util.sprite_load("__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-shadow", {
-					draw_as_shadow = true,
-					frame_sequence = { 2, 2, 2, 2 },
-					frame_count = 4,
-					repeat_count = 4,
+				{
+					filename = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-top-E.png",
+					width = 256,
+					height = 256,
+					frame_count = 16,
+					line_length = 4,
 					scale = 0.5,
-				}),
+					animation_speed = 10,
+				},
+				{
+					filename = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-shadow-E.png",
+					width = 256,
+					height = 256,
+					scale = 0.5,
+					frame_count = 1,
+					repeat_count = 16,
+					draw_as_shadow = true,
+					shift = util.by_pixel(10, 0),
+				},
 			},
 		},
 		south = {
 			layers = {
-				util.sprite_load(
-					"__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-top-south",
-					{
-						frame_count = 16,
-						scale = 0.5,
-						animation_speed = 3,
-					}
-				),
-				util.sprite_load("__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-shadow", {
-					draw_as_shadow = true,
-					frame_sequence = { 3, 3, 3, 3 },
-					frame_count = 4,
-					repeat_count = 4,
+				{
+					filename = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-top-S.png",
+					width = 256,
+					height = 256,
+					frame_count = 16,
+					line_length = 4,
 					scale = 0.5,
-				}),
+					animation_speed = 10,
+				},
+				{
+					filename = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-shadow-S.png",
+					width = 256,
+					height = 256,
+					scale = 0.5,
+					frame_count = 1,
+					repeat_count = 16,
+					draw_as_shadow = true,
+					shift = util.by_pixel(15, 0),
+				},
 			},
 		},
 		west = {
 			layers = {
-				util.sprite_load(
-					"__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-top-west",
-					{
-						frame_count = 16,
-						scale = 0.5,
-						animation_speed = 3,
-					}
-				),
-				util.sprite_load("__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-shadow", {
-					draw_as_shadow = true,
-					frame_sequence = { 4, 4, 4, 4 },
-					frame_count = 4,
-					repeat_count = 4,
+				{
+					filename = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-top-W.png",
+					width = 256,
+					height = 256,
+					frame_count = 16,
+					line_length = 4,
 					scale = 0.5,
-				}),
+					animation_speed = 10,
+				},
+				{
+					filename = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-shadow-W.png",
+					width = 256,
+					height = 256,
+					scale = 0.5,
+					frame_count = 1,
+					repeat_count = 16,
+					draw_as_shadow = true,
+					shift = util.by_pixel(-3, 0),
+				},
 			},
 		},
 	},
@@ -109,26 +125,30 @@ return {
 	),
 	below_arm_pictures = {
 		layers = {
-			util.sprite_load("__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-middle", {
+			{
+				filename = "__diesel_machines__/graphics/diesel-asteroid-collector/diesel-asteroid-collector-bottom.png",
+				width = 256,
+				height = 256,
 				direction_count = 4,
 				scale = 0.5,
-			}),
+			},
 		},
 	},
-	below_ground_pictures = {
-		layers = {
-			util.sprite_load("__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-bottom", {
-				direction_count = 4,
-				scale = 0.5,
-			}),
-		},
-	},
+
+	--below_ground_pictures = {
+	--	layers = {
+	--		util.sprite_load("__space-age__/graphics/entity/asteroid-collector/asteroid-collector-bottom", {
+	--			direction_count = 4,
+	--			scale = 0.5,
+	--		}),
+	--	},
+	--},
 	arm_head_animation = util.sprite_load(
 		"__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-head",
 		{
 			frame_count = 5,
 			direction_count = 32,
-			scale = 0.5,
+			scale = 0.7,
 		}
 	),
 	arm_head_top_animation = util.sprite_load(
@@ -136,12 +156,11 @@ return {
 		{
 			frame_count = 5,
 			direction_count = 32,
-			scale = 0.5,
+			scale = 0.7,
 		}
 	),
 	arm_link = util.sprite_load("__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-link", {
-		--frame_count = 1,
 		direction_count = 64,
-		scale = 0.5,
+		scale = 0.45,
 	}),
 }

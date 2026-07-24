@@ -12,7 +12,7 @@ data:extend({
 		icon = "__diesel_machines__/graphics/diesel-assembling-machine/diesel-assembling-machine-icon.png",
 		subgroup = "production-machine",
 		color_hint = { text = "2" },
-		order = "b[diesel-assembling-machine]",
+		order = "c[diesel-assembling-machine]",
 		inventory_move_sound = item_sounds.mechanical_inventory_move,
 		pick_sound = item_sounds.mechanical_inventory_pickup,
 		drop_sound = item_sounds.mechanical_inventory_move,
@@ -20,6 +20,32 @@ data:extend({
 		weight = 40 * kg,
 		place_result = "diesel-assembling-machine",
 		stack_size = 50,
+	},
+	{
+		type = "corpse",
+		name = "diesel-assembling-machine-remnants",
+		icon = "__diesel_machines__/graphics/diesel-assembling-machine/diesel-assembling-machine-icon.png",
+		flags = { "placeable-neutral", "building-direction-8-way", "not-on-map" },
+		hidden_in_factoriopedia = true,
+		subgroup = "production-machine-remnants",
+		order = "a-a-a",
+		selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 } },
+		tile_width = 3,
+		tile_height = 3,
+		selectable_in_game = false,
+		time_before_removed = 60 * 60 * 15, -- 15 minutes
+		expires = false,
+		final_render_layer = "remnants",
+		remove_on_tile_placement = false,
+		animation = {
+			filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel_assembling_machine_remnants.png",
+			line_length = 1,
+			width = 320,
+			height = 320,
+			direction_count = 1,
+			shift = util.by_pixel(0, 0),
+			scale = 0.5,
+		},
 	},
 
 	{
@@ -29,7 +55,7 @@ data:extend({
 		flags = { "placeable-neutral", "placeable-player", "player-creation" },
 		minable = { mining_time = 0.2, result = "diesel-assembling-machine" },
 		max_health = 350,
-		corpse = "assembling-machine-3-remnants",
+		corpse = "diesel-assembling-machine-remnants",
 		dying_explosion = "assembling-machine-3-explosion",
 		icon_draw_specification = { shift = { 0, -0.3 } },
 		circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
@@ -44,7 +70,7 @@ data:extend({
 		fluid_boxes = {
 			{
 				production_type = "input",
-				pipe_picture = assembler2pipepictures(),
+				pipe_picture = diesel_assembling_machine_pipepictures_blue(),
 				pipe_covers = pipecoverspictures(),
 				volume = 1000,
 				pipe_connections = {
@@ -54,7 +80,7 @@ data:extend({
 			},
 			{
 				production_type = "output",
-				pipe_picture = assembler2pipepictures(),
+				pipe_picture = diesel_assembling_machine_pipepictures_blue(),
 				pipe_covers = pipecoverspictures(),
 				volume = 1000,
 				pipe_connections = {
@@ -74,23 +100,24 @@ data:extend({
 					{
 						filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel-assembling-machine.png",
 						priority = "high",
-						width = 214,
-						height = 218,
+						width = 320,
+						height = 320,
 						frame_count = 32,
 						line_length = 8,
-						shift = util.by_pixel(0, 4),
+						shift = util.by_pixel(0, 0),
 						scale = 0.5,
 					},
 					{
-						filename = "__base__/graphics/entity/assembling-machine-2/assembling-machine-2-shadow.png",
+						filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel_assembling_machine_shadow.png",
 						priority = "high",
-						width = 196,
-						height = 163,
-						frame_count = 32,
-						line_length = 8,
-						draw_as_shadow = true,
-						shift = util.by_pixel(12, 4.75),
+						width = 448,
+						height = 448,
+						frame_count = 1,
+						line_length = 1,
+						shift = util.by_pixel(0, 0),
 						scale = 0.5,
+						repeat_count = 32,
+						draw_as_shadow = true,
 					},
 				},
 			},
@@ -108,7 +135,6 @@ data:extend({
 			fade_out_ticks = 20,
 		},
 		crafting_categories = {
-			"basic-crafting",
 			"crafting",
 			"advanced-crafting",
 			"crafting-with-fluid",
@@ -125,14 +151,14 @@ data:extend({
 		},
 
 		crafting_speed = 1.25,
-		make_space_diesel_variant = true,
+		diesel_fuel_fluid_filter = true,
 		energy_source = {
 			type = "fluid",
 			burns_fluid = true, -- fluid used as power
 			scale_fluid_usage = true,
 			fluid_box = {
 				--pipe_covers = pipecoverspictures(),
-				pipe_picture = dieselassemblingmachinepipes(),
+				pipe_picture = diesel_assembling_machine_pipepictures_yellow(),
 				pipe_covers = pipecoverspictures(),
 				always_draw_covers = false,
 				volume = 100,
@@ -147,8 +173,11 @@ data:extend({
 				{
 					name = "smoke",
 					frequency = 10,
-					position = { 0, 0 },
-					starting_vertical_speed = 0.06, --base 0.08
+					north_position = { 0.85, -2.25 },
+					south_position = { 0.85, -2.25 },
+					east_position = { 0.85, -2.25 },
+					west_position = { 0.85, -2.25 },
+					starting_vertical_speed = 0.08,
 					starting_frame_deviation = 60,
 				},
 			},

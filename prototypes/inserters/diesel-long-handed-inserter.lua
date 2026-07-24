@@ -1,0 +1,183 @@
+require("__base__.prototypes.entity.pipecovers")
+local item_sounds = require("__base__.prototypes.item_sounds")
+
+local hit_effects = require("__base__.prototypes.entity.hit-effects")
+local sounds = require("__base__.prototypes.entity.sounds")
+
+function long_handed_inserter_pipe_base()
+	return {
+		north = {
+			filename = "__diesel_machines__/graphics/inserters/diesel-long-handed-inserter-base.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			shift = util.by_pixel(0, 32),
+			scale = 0.5,
+		},
+
+		east = util.empty_sprite(),
+		south = util.empty_sprite(),
+		west = util.empty_sprite(),
+	}
+end
+
+data:extend({
+	{
+		type = "item",
+		name = "diesel-long-handed-inserter",
+		icon = "__diesel_machines__/graphics/inserters/diesel-long-handed-inserter-icon.png",
+		subgroup = "diesel-inserter",
+		color_hint = { text = "L" },
+		order = "gd[diesel-inserter-b]",
+		inventory_move_sound = item_sounds.inserter_inventory_move,
+		pick_sound = item_sounds.inserter_inventory_pickup,
+		drop_sound = item_sounds.inserter_inventory_move,
+		place_result = "diesel-long-handed-inserter",
+		weight = 20 * kg,
+		stack_size = 50,
+	},
+	{
+		type = "corpse",
+		name = "long-handed-diesel-inserter-remnants",
+		icon = "__diesel_machines__/graphics/inserters/diesel-long-handed-inserter-icon.png",
+		flags = { "placeable-neutral", "not-on-map" },
+		subgroup = "inserter-remnants",
+		order = "a-d-a",
+		selection_box = { { -0.5, -0.5 }, { 0.5, 0.5 } },
+		tile_width = 1,
+		tile_height = 1,
+		selectable_in_game = false,
+		time_before_removed = 60 * 60 * 15,
+		final_render_layer = "remnants",
+		remove_on_tile_placement = false,
+		animation = {
+			{
+				filename = "__diesel_machines__/graphics/inserters/diesel-long-handed-inserter-remnants.png",
+				line_length = 1,
+				width = 128,
+				height = 128,
+				frame_count = 1,
+				direction_count = 1,
+				shift = util.by_pixel(0, 0),
+				scale = 0.5,
+			},
+		},
+	},
+	{
+		type = "inserter",
+		name = "diesel-long-handed-inserter",
+		icon = "__diesel_machines__/graphics/inserters/diesel-long-handed-inserter-icon.png",
+		flags = { "placeable-neutral", "placeable-player", "player-creation" },
+		minable = { mining_time = 0.1, result = "diesel-long-handed-inserter" },
+		max_health = 150,
+		corpse = "long-handed-diesel-inserter-remnants",
+		dying_explosion = "inserter-explosion",
+		resistances = {
+			{
+				type = "fire",
+				percent = 90,
+			},
+		},
+		collision_box = { { -0.15, -0.15 }, { 0.15, 0.15 } },
+		selection_box = { { -0.4, -0.35 }, { 0.4, 0.45 } },
+		damaged_trigger_effect = hit_effects.entity(),
+		pickup_position = { 0, -2 },
+		insert_position = { 0, 2.2 },
+		starting_distance = 1.7,
+		hand_size = 1.5,
+		energy_per_movement = "7kJ",
+		energy_per_rotation = "7kJ",
+		diesel_fuel_fluid_filter = true,
+		energy_source = {
+			type = "fluid",
+			burns_fluid = true,
+			scale_fluid_usage = true,
+			fluid_box = {
+				pipe_picture = long_handed_inserter_pipe_base(),
+				pipe_covers = diesel_inserter_pipecoverspictures(),
+				always_draw_covers = false,
+				volume = 100,
+				pipe_connections = {
+					{ direction = defines.direction.north, position = { 0, 0 } },
+					{ direction = defines.direction.south, position = { 0, 0 } },
+					{ direction = defines.direction.west, position = { 0, 0 } },
+					{ direction = defines.direction.east, position = { 0, 0 } },
+				},
+				production_type = "input-output",
+			},
+			smoke = {
+				{
+					name = "smoke",
+					frequency = 3,
+					position = { 0, 0 },
+					starting_vertical_speed = 0.1,
+					starting_frame_deviation = 60,
+				},
+			},
+		},
+		extension_speed = 0.1,
+		rotation_speed = 0.04,
+		filter_count = 5,
+		icon_draw_specification = {
+			scale = 0.8,
+			render_layer = "entity-info-icon-above",
+		},
+		fast_replaceable_group = "inserter",
+		impact_category = "metal",
+		open_sound = sounds.inserter_open,
+		close_sound = sounds.inserter_close,
+		working_sound = sounds.inserter_fast,
+		hand_base_picture = {
+			filename = "__diesel_machines__/graphics/inserters/diesel-long-handed-inserter-arm.png",
+			priority = "extra-high",
+			width = 64,
+			height = 128,
+			scale = 0.5,
+		},
+		hand_closed_picture = {
+			filename = "__diesel_machines__/graphics/inserters/diesel-long-handed-inserter-hand-closed.png",
+			priority = "extra-high",
+			width = 64,
+			height = 128,
+			scale = 0.5,
+		},
+		hand_open_picture = {
+			filename = "__diesel_machines__/graphics/inserters/diesel-long-handed-inserter-hand-open.png",
+			priority = "extra-high",
+			width = 64,
+			height = 128,
+			scale = 0.5,
+		},
+		hand_base_shadow = {
+			filename = "__base__/graphics/entity/burner-inserter/burner-inserter-hand-base-shadow.png",
+			priority = "extra-high",
+			width = 32,
+			height = 132,
+			scale = 0.25,
+		},
+		hand_closed_shadow = {
+			filename = "__base__/graphics/entity/burner-inserter/burner-inserter-hand-closed-shadow.png",
+			priority = "extra-high",
+			width = 72,
+			height = 164,
+			scale = 0.25,
+		},
+		hand_open_shadow = {
+			filename = "__base__/graphics/entity/burner-inserter/burner-inserter-hand-open-shadow.png",
+			priority = "extra-high",
+			width = 72,
+			height = 164,
+			scale = 0.25,
+		},
+		platform_picture = {
+			filename = "__diesel_machines__/graphics/inserters/diesel-long-handed-inserter-base.png",
+			priority = "extra-high",
+			width = 128,
+			height = 128,
+			scale = 0.48,
+		},
+		circuit_connector = circuit_connector_definitions["inserter"],
+		circuit_wire_max_distance = inserter_circuit_wire_max_distance,
+		default_stack_control_input_signal = inserter_default_stack_control_input_signal,
+	},
+})

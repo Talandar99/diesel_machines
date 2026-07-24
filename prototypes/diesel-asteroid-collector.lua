@@ -3,47 +3,11 @@ local item_tints = require("__base__.prototypes.item-tints")
 local sounds = require("__base__.prototypes.entity.sounds")
 local hit_effects = require("__base__.prototypes.entity.hit-effects")
 
-function cutpipecover()
-	return {
-		north = {
-			filename = "__diesel_machines__/graphics/pipe_covers/cut/pipe-N-short.png",
-			priority = "extra-high",
-			width = 71,
-			height = 38,
-			shift = util.by_pixel(2.25, 13.5),
-			scale = 0.5,
-		},
-		east = {
-			filename = "__diesel_machines__/graphics/pipe_covers/cut/pipe-E.png",
-			priority = "extra-high",
-			width = 42,
-			height = 76,
-			shift = util.by_pixel(-24.5, 1),
-			scale = 0.5,
-		},
-		south = {
-			filename = "__diesel_machines__/graphics/pipe_covers/cut/pipe-S-long.png",
-			priority = "extra-high",
-			width = 88,
-			height = 61,
-			shift = util.by_pixel(0, -31.25),
-			scale = 0.5,
-		},
-		west = {
-			filename = "__diesel_machines__/graphics/pipe_covers/cut/pipe-W.png",
-			priority = "extra-high",
-			width = 39,
-			height = 73,
-			shift = util.by_pixel(25.75, 1.25),
-			scale = 0.5,
-		},
-	}
-end
 data:extend({
 	{
 		type = "item",
 		name = "diesel-asteroid-collector",
-		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector.png",
+		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/diesel-asteroid-collector-icon.png",
 		subgroup = "space-platform",
 		order = "d[asteroid-collector]",
 		inventory_move_sound = item_sounds.mechanical_inventory_move,
@@ -59,19 +23,61 @@ data:extend({
 		name = "diesel-asteroid-collector",
 		enabled = false,
 		ingredients = {
-			{ type = "item", name = "low-density-structure", amount = 20 },
+			{ type = "item", name = "carbon-fiber", amount = 20 },
 			{ type = "item", name = "electric-engine-unit", amount = 8 },
 			{ type = "item", name = "processing-unit", amount = 5 },
+		},
+		surface_conditions = {
+			{
+				property = "pressure",
+				max = 1,
+			},
 		},
 		energy_required = 10,
 		results = { { type = "item", name = "diesel-asteroid-collector", amount = 1 } },
 	},
 	{
+		type = "corpse",
+		name = "diesel-asteroid-collector-remnants",
+		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/diesel-asteroid-collector-icon.png",
+		flags = { "placeable-neutral", "not-on-map" },
+		hidden_in_factoriopedia = true,
+		subgroup = "space-platform-remnants",
+		order = "c",
+		selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 } },
+		collision_box = { { -0.45, -0.45 }, { 0.45, 0.45 } },
+		tile_width = 1,
+		tile_height = 1,
+		selectable_in_game = false,
+		time_before_removed = 60 * 60 * 15, -- 15 minutes
+		expires = false,
+		final_render_layer = "remnants",
+		remove_on_tile_placement = false,
+		animation = util.sprite_load(
+			"__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector-remnants",
+			{
+				scale = 0.5,
+				direction_count = 4,
+				line_length = 1,
+			}
+		),
+	},
+	{
 		type = "asteroid-collector",
 		name = "diesel-asteroid-collector",
 		flags = { "placeable-neutral", "placeable-player", "player-creation" },
-		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector.png",
+		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/diesel-asteroid-collector-icon.png",
 		--factoriopedia_simulation = simulations.factoriopedia_asteroid_collector,
+		created_effect = {
+			type = "direct",
+			action_delivery = {
+				type = "instant",
+				source_effects = {
+					type = "script",
+					effect_id = "diesel-collector-built",
+				},
+			},
+		},
 		collision_box = { { -1.2, -1.2 }, { 1.2, 1.2 } },
 		collision_mask = { layers = { is_object = true, is_lower_object = true, transport_belt = true } },
 		tile_buildability_rules = {
@@ -122,7 +128,7 @@ data:extend({
 		tile_width = 3,
 		selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 } },
 		fast_replaceable_group = "asteroid-collector",
-		corpse = "asteroid-collector-remnants",
+		corpse = "diesel-asteroid-collector-remnants",
 		dying_explosion = "asteroid-collector-explosion",
 		--collection_radius = 7.5,
 		collection_radius = 20,
@@ -240,8 +246,8 @@ data:extend({
 	{
 		type = "recipe",
 		name = "diesel-asteroid-collector-working",
-		category = "diesel-asteroid-collector-working",
-		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector.png",
+		categories = { "diesel-asteroid-collector-working" },
+		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/diesel-asteroid-collector-icon.png",
 		energy_required = 1,
 		enabled = true,
 		ingredients = {},
@@ -258,8 +264,8 @@ data:extend({
 data:extend({
 	{
 		type = "assembling-machine",
-		name = "diesel-asteroid-collector-engine",
-		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/asteroid-collector.png",
+		name = "diesel-asteroid-collector-hidden-engine",
+		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/diesel-asteroid-collector-icon.png",
 		flags = {
 			"placeable-neutral",
 			"placeable-player",
@@ -269,7 +275,7 @@ data:extend({
 		},
 		collision_mask = { layers = {} },
 		max_health = 350,
-		corpse = "assembling-machine-3-remnants",
+		corpse = "diesel-asteroid-collector-remnants",
 		dying_explosion = "assembling-machine-3-explosion",
 		icon_draw_specification = { shift = { 0, -0.3 } },
 		circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
@@ -290,7 +296,6 @@ data:extend({
 		--selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 } },
 		damaged_trigger_effect = hit_effects.entity(),
 		fast_replaceable_group = "",
-		next_upgrade = "",
 		graphics_set = {},
 		open_sound = sounds.machine_open,
 		close_sound = sounds.machine_close,
@@ -317,10 +322,10 @@ data:extend({
 				--pipe_covers = pipecoverspictures(),
 				--pipe_picture = assembler2pipepictures(),
 				--pipe_picture = dieseldrillpipepictures(),
-				pipe_picture = cutpipecover(),
+				pipe_picture = diesel_asteroid_collector_pipepictures(),
 				pipe_covers = pipecoverspictures(),
 				always_draw_covers = false,
-				volume = 100,
+				volume = 50,
 				pipe_connections = {
 					{ direction = defines.direction.west, position = { -1, 0 } },
 					{ direction = defines.direction.east, position = { 1, 0 } },
@@ -332,14 +337,17 @@ data:extend({
 				{
 					name = "smoke",
 					frequency = 10,
-					position = { 0, 0 },
-					starting_vertical_speed = 0.06, --base 0.08
+					north_position = { 0.35, -1.32 },
+					south_position = { -0.12, -0.67 },
+					east_position = { 0.54, -0.86 },
+					west_position = { -0.34, -1.2 },
+					starting_vertical_speed = 0.08,
 					starting_frame_deviation = 60,
 				},
 			},
 			emissions_per_minute = { pollution = 10 }, --12 is burner drill ,10 is electric drill
 		},
-		energy_usage = "300kW",
+		energy_usage = "500kW",
 		module_slots = 0,
 		allowed_effects = {},
 	},
