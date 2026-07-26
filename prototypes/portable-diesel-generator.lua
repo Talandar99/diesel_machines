@@ -16,20 +16,6 @@ data:extend({
 		weight = 0.25 * tons,
 	},
 	{
-		type = "recipe",
-		name = "portable-diesel-generator",
-		energy_required = 10,
-		ingredients = {
-			{ type = "item", name = "iron-gear-wheel", amount = 60 },
-			{ type = "item", name = "pipe", amount = 50 },
-			{ type = "item", name = "engine-unit", amount = 150 },
-			{ type = "item", name = "plastic-bar", amount = 30 },
-		},
-		results = { { type = "item", name = "portable-diesel-generator", amount = 1 } },
-		enabled = false,
-		--auto_recycle = false,
-	},
-	{
 		type = "generator-equipment",
 		name = "portable-diesel-generator",
 		sprite = {
@@ -73,7 +59,7 @@ data:extend({
 			type = "electric",
 			usage_priority = "primary-output",
 		},
-		power = "900kW",
+		power = "1MW",
 		categories = { "armor" },
 	},
 })

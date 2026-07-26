@@ -185,7 +185,7 @@ data:extend({
 		diesel_fuel_fluid_filter = true,
 		energy_source = {
 			type = "fluid",
-			burns_fluid = true, -- fluid used as power
+			burns_fluid = true,
 			scale_fluid_usage = true,
 			fluid_box = {
 				--pipe_covers = pipecoverspictures(),

@@ -60,7 +60,7 @@ data:extend({
 		icons = util.technology_icon_constant_equipment("__diesel_machines__/graphics/portable-diesel-generator.png"),
 		icon_size = 256,
 		effects = {
-			--{ type = "unlock-recipe", recipe = "portable-diesel-generator" },
+			{ type = "unlock-recipe", recipe = "portable-diesel-generator" },
 		},
 		prerequisites = {
 			"diesel-automation",
@@ -110,7 +110,7 @@ if mods["space-age"] then
 			icon = "__diesel_machines__/graphics/diesel-agricultural-tower/diesel_agricultural_tower_technology.png",
 			icon_size = 256,
 			effects = {
-				--{ type = "unlock-recipe", recipe = "diesel-agricultural-tower" },
+				{ type = "unlock-recipe", recipe = "diesel-agricultural-tower" },
 			},
 			prerequisites = { "diesel-automation", "agriculture", "agricultural-science-pack" },
 			unit = {
@@ -131,7 +131,7 @@ if mods["space-age"] then
 			icon = "__diesel_machines__/graphics/inserters/diesel_stack_cargo_inserter_technology.png",
 			icon_size = 512,
 			effects = {
-				--{ type = "unlock-recipe", recipe = "diesel-cargo-stack-inserter" },
+				{ type = "unlock-recipe", recipe = "diesel-cargo-stack-inserter" },
 			},
 			prerequisites = {
 				"diesel-automation",

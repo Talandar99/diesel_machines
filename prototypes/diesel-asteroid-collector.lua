@@ -19,24 +19,6 @@ data:extend({
 		random_tint_color = item_tints.iron_rust,
 	},
 	{
-		type = "recipe",
-		name = "diesel-asteroid-collector",
-		enabled = false,
-		ingredients = {
-			{ type = "item", name = "carbon-fiber", amount = 20 },
-			{ type = "item", name = "electric-engine-unit", amount = 8 },
-			{ type = "item", name = "processing-unit", amount = 5 },
-		},
-		surface_conditions = {
-			{
-				property = "pressure",
-				max = 1,
-			},
-		},
-		energy_required = 10,
-		results = { { type = "item", name = "diesel-asteroid-collector", amount = 1 } },
-	},
-	{
 		type = "corpse",
 		name = "diesel-asteroid-collector-remnants",
 		icon = "__diesel_machines__/graphics/diesel-asteroid-collector/diesel-asteroid-collector-icon.png",
@@ -207,6 +189,7 @@ data:extend({
 		tether_size = 0.35,
 		unpowered_arm_speed_scale = 0.3,
 		held_items_offset = 0.6,
+		diesel_fuel_tips_and_tricks = true,
 		energy_source = {
 			type = "void",
 			--usage_priority = "secondary-input",

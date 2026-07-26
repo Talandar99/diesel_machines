@@ -109,7 +109,8 @@ data:extend({
 			},
 		},
 		extension_speed = 0.1,
-		rotation_speed = 0.04,
+		--rotation_speed = 0.04,
+		rotation_speed = 0.05,
 		filter_count = 5,
 		icon_draw_specification = {
 			--shift = {0, -0.3},
@@ -220,7 +221,7 @@ data:extend({
 					},
 					{
 						filename = "__diesel_machines__/graphics/inserters/diesel-bulk-cargo-inserter-base-vertical-shadow.png",
-						priority = "extra-high",
+						priority = "high",
 						width = 256,
 						height = 256,
 						shift = util.by_pixel(10, 0),
@@ -248,7 +249,7 @@ data:extend({
 					},
 					{
 						filename = "__diesel_machines__/graphics/inserters/diesel-bulk-cargo-inserter-base-vertical-shadow.png",
-						priority = "extra-high",
+						priority = "high",
 						width = 256,
 						height = 256,
 						shift = util.by_pixel(10, 0),
