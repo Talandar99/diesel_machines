@@ -1,12 +1,31 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.5.0
+Version: 1.0.0
 Date: 2026-06-07
   Changes:
+    - THIS VERSION OF THE MOD CONTAIN CHANGES THAT WILL BREAK EXISTING
+      FACTORIES. 
+    - It also contain a lot of cool stuff that took me about a month
+      to make. 
+    - you can now check which machines use liquid fuel and what liquid fuels
+      you have available in tips and tricks
+    - all diesel inserters were renamed 
+    - all diesel inserters now have their own subgroup to improve readability
     - added support for space diesel
+    - added support for fluid filters (existing entities might need to be mined and placed again)
+    - diesel drill was removed 
+    - diesel miner was added
     - if cargo crates are installed with diesel machines, diesel assembling
-      machine is only machine capable of packing and unpacking crates (this was
-      previously present in pelagos, it's moved to this mod)
+      machine is only machine capable of packing and unpacking crates (previously present in pelagos)
     - added diesel asteroid collector (previously present in pelagos)
+    - added diesel agricultural tower (previously present in pelagos)
+    - added diesel cargo stack inserter (previously present in pelagos)
+  Balacing:
+    - updated all recipes with 2 new intermediates diesel engine and steel gear wheel
+    - Diesel Agricultural tower can now accept modules 
+    - Diesel cargo stack inserter can only be made on gleba
+    - Significantly increased collection range for diesel asteroid collector
+    - Diesel cargo inserter have now higher rotation speed (864 -> 1080)
+    - Portable diesel generator now generate much more power (800kW-> 1MW)
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.0
 Date: 2026-05-02

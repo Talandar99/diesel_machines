@@ -4,7 +4,7 @@
     "title": "Diesel Machines",
     "author": "Talandar",
     "dependencies": [
-        "diesel_engine",
+        "diesel_engine >= 1.0.0",
         "? diesel_trains",
         "? offshore_pump_require_power",
         "? calciner"

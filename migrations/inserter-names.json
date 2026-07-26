@@ -1,0 +1,38 @@
+{
+    "item": [
+        [
+            "fast-diesel-inserter",
+            "diesel-fast-inserter"
+        ],
+        [
+            "long-handed-diesel-inserter",
+            "diesel-long-handed-inserter"
+        ],
+        [
+            "diesel-inserter",
+            "diesel-extra-long-handed-inserter"
+        ],
+        [
+            "crane-bulk-diesel-inserter",
+            "diesel-cargo-bulk-inserter"
+        ]
+    ],
+    "entity": [
+        [
+            "fast-diesel-inserter",
+            "diesel-fast-inserter"
+        ],
+        [
+            "long-handed-diesel-inserter",
+            "diesel-long-handed-inserter"
+        ],
+        [
+            "diesel-inserter",
+            "diesel-extra-long-handed-inserter"
+        ],
+        [
+            "crane-bulk-diesel-inserter",
+            "diesel-cargo-bulk-inserter"
+        ]
+    ]
+}
