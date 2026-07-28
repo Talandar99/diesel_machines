@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2026-06-28
+  Changes:
+    - updated assembling machine sprite
+    - updated thumbnail and diesel automation icon based on new assembling machine sprite
+    - updated inserter bases to have nicer pipe connection point. They should feel less overlaping 
+---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2026-06-26
   Changes:
@@ -24,7 +31,7 @@ Date: 2026-06-26
     - Diesel Agricultural tower can now accept modules 
     - Diesel cargo stack inserter can only be made on gleba
     - Significantly increased collection range for diesel asteroid collector
-    - Diesel cargo inserter have now higher rotation speed (864 -> 1080)
+    - Diesel cargo inserters have now higher rotation speed (864 -> 1080)
     - Portable diesel generator now generate much more power (800kW-> 1MW)
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.0

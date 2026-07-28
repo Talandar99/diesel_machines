@@ -2,8 +2,8 @@ data:extend({
 	{
 		type = "technology",
 		name = "diesel-automation",
-		icon = "__diesel_machines__/graphics/diesel-assembling-machine/diesel_assembling_machine_technology.png",
-		icon_size = 320,
+		icon = "__diesel_machines__/graphics/diesel-assembling-machine/diesel_assembling_machine_tech_512.png",
+		icon_size = 512,
 		effects = {
 			{ type = "unlock-recipe", recipe = "diesel-fast-inserter" },
 			{ type = "unlock-recipe", recipe = "diesel-long-handed-inserter" },

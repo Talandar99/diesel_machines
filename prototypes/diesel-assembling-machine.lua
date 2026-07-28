@@ -100,8 +100,8 @@ data:extend({
 					{
 						filename = "__diesel_machines__/graphics/diesel-assembling-machine/diesel-assembling-machine.png",
 						priority = "high",
-						width = 320,
-						height = 320,
+						width = 294,
+						height = 294,
 						frame_count = 32,
 						line_length = 8,
 						shift = util.by_pixel(0, 0),
