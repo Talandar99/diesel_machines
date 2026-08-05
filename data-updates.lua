@@ -1,9 +1,9 @@
 if mods["lignumis"] then
 	if data.raw["inserter"]["steam-inserter"] then
-		data.raw["inserter"]["steam-inserter"].next_upgrade = "fast-diesel-inserter"
+		data.raw["inserter"]["steam-inserter"].next_upgrade = "diesel-fast-inserter"
 	end
 	if data.raw["inserter"]["long-handed-steam-inserter"] then
-		data.raw["inserter"]["long-handed-steam-inserter"].next_upgrade = "long-handed-diesel-inserter"
+		data.raw["inserter"]["long-handed-steam-inserter"].next_upgrade = "diesel-long-handed-inserter"
 	end
 end
 

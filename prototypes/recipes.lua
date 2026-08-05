@@ -80,7 +80,7 @@ data.extend({
 		type = "recipe",
 		name = "diesel-miner",
 		categories = { "advanced-crafting" },
-		enabled = true,
+		enabled = false,
 		energy_required = 30,
 		ingredients = {
 			{ type = "item", name = "burner-mining-drill", amount = 6 },
