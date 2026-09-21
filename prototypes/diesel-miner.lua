@@ -24,9 +24,9 @@ data:extend({
 		flags = { "placeable-neutral", "player-creation" },
 		minable = { mining_time = 0.5, result = "diesel-miner" },
 		max_health = 1000,
-		resource_categories = { "basic-solid", "hard-solid" },
+		resource_categories = { "basic-solid" },
 		corpse = "diesel-miner-remnants",
-		dying_explosion = "big-mining-drill-explosion",
+		dying_explosion = "electric-mining-drill-explosion",
 		collision_box = { { -3.35, -3.35 }, { 3.35, 3.35 } },
 		selection_box = { { -3.5, -3.5 }, { 3.5, 3.5 } },
 		drawing_box_vertical_extension = 1,
@@ -75,7 +75,7 @@ data:extend({
 		mining_speed = 5.0,
 		resource_searching_radius = 9.49,
 		radius_visualisation_picture = {
-			filename = "__space-age__/graphics/entity/big-mining-drill/big-mining-drill-radius-visualization.png",
+			filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-radius-visualization.png",
 			width = 10,
 			height = 10,
 		},
@@ -84,24 +84,21 @@ data:extend({
 		module_slots = 5,
 
 		--resource_drain_rate_percent = 50,
-		drops_full_belt_stacks = true,
 		perceived_performance = { maximum = 30.0 },
 		--fast_replaceable_group = "big-mining-drill",
 
-		circuit_connector = table.deepcopy(circuit_connector_definitions["big-mining-drill"]),
+		circuit_connector = table.deepcopy(circuit_connector_definitions["mining-drill"]),
 		circuit_wire_max_distance = default_circuit_wire_max_distance,
 
 		working_sound = {
-			main_sounds = {
-				sound = {
-					filename = "__space-age__/sound/entity/big-mining-drill/big-mining-drill-working-loop.ogg",
-					--volume = 0.3,
-					volume = 0.5,
-				},
-				fade_in_ticks = 4,
-				fade_out_ticks = 30,
+			sound = {
+				filename = "__base__/sound/electric-mining-drill.ogg",
+				volume = 5.0,
+				advanced_volume_control = { attenuation = "exponential" },
 			},
-			max_sounds_per_prototype = 1,
+			max_sounds_per_prototype = 4,
+			fade_in_ticks = 4,
+			fade_out_ticks = 20,
 		},
 		open_sound = sounds.drill_open,
 		close_sound = sounds.drill_close,
@@ -277,3 +274,7 @@ data:extend({
 		},
 	},
 })
+if mods["space-age"] then
+	data.raw["mining-drill"]["diesel-miner"].drops_full_belt_stacks = true
+	table.insert(data.raw["mining-drill"]["diesel-miner"], "hard-solid")
+end

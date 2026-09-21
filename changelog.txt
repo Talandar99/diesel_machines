@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 2026-09-18
+  Changes:
+    - updated sprites so new pipe covers added in core lib look better
+  Bugfixes:
+    - resolved all issues that caused game to crash if mod was launched without SA. 
+      You should be able to play without expansion now
+---------------------------------------------------------------------------------------------------
 Version: 1.1.1
 Date: 2026-08-06
   Bugfixes:
